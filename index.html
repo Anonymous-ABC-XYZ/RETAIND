@@ -1,0 +1,1745 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description"
+    content="RETAIND — AI-led compliance, quality & onboarding overlay for field service businesses. Save £125k–£175k+ per year." />
+  <title>RETAIND — Retain Staff. Retain Skills. Retain Value.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Geist:wght@100..900&display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"DM Sans"', "system-ui", "sans-serif"],
+            body: ['"Host Grotesk"', "system-ui", "sans-serif"],
+            mono: ['"Geist"', "system-ui", "sans-serif"],
+          },
+          colors: {
+            surface: {
+              0: "#ffffff",
+              50: "#fafafa",
+              100: "#f5f5f5",
+              200: "#e5e5e5",
+              300: "#d4d4d4",
+              400: "#a3a3a3",
+              500: "#737373",
+              600: "#525252",
+              700: "#404040",
+              800: "#262626",
+              900: "#0a0a0a",
+            },
+            signal: {
+              red: "#ef4444",
+              orange: "#f97316",
+              amber: "#eab308",
+              green: "#22c55e",
+              teal: "#14b8a6",
+            },
+            brand: {
+              DEFAULT: "#a9ed42",
+              light: "#c4f576",
+              dark: "#8bd32e",
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    html {
+      color-scheme: light;
+    }
+
+    /* Orchestrated page-load */
+    @keyframes reveal-up {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes reveal-in {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes draw-line {
+      from {
+        transform: scaleY(0);
+      }
+
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    @keyframes wipe-right {
+      from {
+        transform: scaleX(0);
+      }
+
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes number-pop {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+      }
+
+      60% {
+        transform: translateY(-3px) scale(1.02);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes marker-wipe {
+      from {
+        transform: scaleX(0);
+      }
+
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes bar-grow {
+      from {
+        transform: scaleY(0);
+      }
+
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    @keyframes bar-fill {
+      from {
+        transform: scaleX(0);
+      }
+
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes ping-subtle {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      70% {
+        transform: scale(1.8);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1.8);
+        opacity: 0;
+      }
+    }
+
+    @keyframes h-rule-draw {
+      from {
+        transform: scaleX(0);
+      }
+
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes savings-pop {
+      0% {
+        opacity: 0;
+        transform: translateY(24px) scale(0.92);
+      }
+
+      65% {
+        transform: translateY(-4px) scale(1.03);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes data-slide {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .load-1 {
+      opacity: 0;
+      animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    }
+
+    .load-2 {
+      opacity: 0;
+      animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+    }
+
+    .load-3 {
+      opacity: 0;
+      animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+    }
+
+    .load-4 {
+      opacity: 0;
+      animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+    }
+
+    .load-5 {
+      opacity: 0;
+      animation: reveal-in 1s ease 0.7s forwards;
+    }
+
+    /* Scroll-triggered reveals */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    /* Vertical rule */
+    .v-rule {
+      width: 1px;
+      background: linear-gradient(to bottom,
+          transparent,
+          #e5e5e5 20%,
+          #e5e5e5 80%,
+          transparent);
+    }
+
+    /* Horizontal rule — draws from center */
+    .h-rule {
+      height: 1px;
+      background: linear-gradient(to right,
+          transparent,
+          #e5e5e5 15%,
+          #e5e5e5 85%,
+          transparent);
+      transform: scaleX(0);
+      transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .h-rule.drawn {
+      transform: scaleX(1);
+    }
+
+    /* Chart bar animation */
+    .bar-animated {
+      transform-origin: bottom;
+      transform: scaleY(0);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .bar-animated.grown {
+      transform: scaleY(1);
+    }
+
+    /* Progress bar fill animation */
+    .fill-animated {
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fill-animated.filled {
+      transform: scaleX(1);
+    }
+
+    /* Data number animation */
+    .data-animated {
+      opacity: 0;
+      transform: translateY(12px);
+      transition:
+        opacity 0.5s ease,
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .data-animated.popped {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Savings number animation */
+    .savings-animated {
+      opacity: 0;
+      transform: translateY(24px) scale(0.92);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .savings-animated.popped {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Staggered feature list items */
+    .stagger-list li {
+      opacity: 0;
+      transform: translateX(-8px);
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .stagger-list.visible li:nth-child(1) {
+      transition-delay: 0.05s;
+    }
+
+    .stagger-list.visible li:nth-child(2) {
+      transition-delay: 0.12s;
+    }
+
+    .stagger-list.visible li:nth-child(3) {
+      transition-delay: 0.19s;
+    }
+
+    .stagger-list.visible li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Ping for LIVE badge */
+    .ping-dot {
+      position: relative;
+    }
+
+    .ping-dot::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: inherit;
+      animation: ping-subtle 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    /* Nav link underline wipe */
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #a9ed42;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Data emphasis */
+    .data-accent {
+      font-family: "Geist", system-ui, sans-serif;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+
+    /* Editorial marker — animated wipe */
+    .marker {
+      position: relative;
+      display: inline;
+    }
+
+    .marker::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0.08em;
+      width: 100%;
+      height: 0.18em;
+      background: #a9ed42;
+      opacity: 0.45;
+      z-index: -1;
+      transform-origin: left;
+      animation: marker-wipe 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+    }
+
+    /* Section numbering */
+    .section-num {
+      font-family: "Geist", system-ui, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0a0a0a;
+      background: #f0ffd1;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-weight: 500;
+    }
+
+    /* Card hover — subtle border wipe + lift */
+    .edge-card {
+      position: relative;
+      border: 1px solid #e5e5e5;
+      transition:
+        border-color 0.3s ease,
+        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.3s ease;
+    }
+
+    .edge-card::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #a9ed42;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .edge-card:hover {
+      border-color: #d4d4d4;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.08);
+    }
+
+    .edge-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Dashboard mock */
+    .mock-panel {
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+    }
+
+    /* FAQ */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+
+    .faq-item.open .faq-plus {
+      transform: rotate(45deg);
+    }
+
+    .faq-plus {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    /* Scroll offset */
+    section[id] {
+      scroll-margin-top: 80px;
+    }
+
+    /* Custom selection */
+    ::selection {
+      background: rgba(169, 237, 66, 0.3);
+    }
+  </style>
+</head>
+
+<body class="bg-surface-0 text-surface-600 font-body antialiased">
+  <!-- ░░░ NAV ░░░ -->
+  <nav class="fixed top-0 inset-x-0 z-50 bg-surface-0/90 backdrop-blur-lg border-b border-surface-200">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6 h-16">
+      <a href="#" class="flex items-center gap-2.5 group" aria-label="RETAIND home">
+        <div
+          class="w-7 h-7 bg-brand flex items-center justify-center rounded-md font-mono text-xs font-bold text-surface-900 transition-transform duration-200 group-hover:scale-105">
+          R
+        </div>
+        <span class="font-display text-lg text-surface-900 tracking-tight font-bold">RETAIND</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#problems"
+          class="nav-link text-xs font-medium text-surface-500 tracking-wide uppercase transition-colors duration-200 hover:text-surface-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0 rounded">Problems</a>
+        <a href="#savings"
+          class="nav-link text-xs font-medium text-surface-500 tracking-wide uppercase transition-colors duration-200 hover:text-surface-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0 rounded">ROI</a>
+        <a href="#features"
+          class="nav-link text-xs font-medium text-surface-500 tracking-wide uppercase transition-colors duration-200 hover:text-surface-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0 rounded">Platform</a>
+        <a href="#faq"
+          class="nav-link text-xs font-medium text-surface-500 tracking-wide uppercase transition-colors duration-200 hover:text-surface-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0 rounded">FAQ</a>
+      </div>
+      <a href="#contact"
+        class="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-surface-900 text-surface-0 text-xs font-semibold tracking-wide uppercase rounded-full transition-all duration-200 hover:bg-surface-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0">
+        Book&nbsp;Demo
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </a>
+      <button id="mobile-menu-btn"
+        class="md:hidden p-2 text-surface-500 hover:text-surface-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
+        aria-label="Toggle menu" aria-expanded="false">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-surface-0/95 backdrop-blur-lg border-t border-surface-200">
+      <div class="flex flex-col px-6 py-4 gap-3 text-sm font-medium text-surface-500">
+        <a href="#problems" class="py-1.5 hover:text-surface-900">Problems</a>
+        <a href="#savings" class="py-1.5 hover:text-surface-900">ROI</a>
+        <a href="#features" class="py-1.5 hover:text-surface-900">Platform</a>
+        <a href="#faq" class="py-1.5 hover:text-surface-900">FAQ</a>
+        <a href="#contact"
+          class="mt-2 text-center px-4 py-2.5 bg-surface-900 text-surface-0 text-xs font-semibold tracking-wide uppercase rounded-full">Book
+          Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ░░░ HERO ░░░ -->
+  <section class="relative min-h-screen flex items-end pb-20 pt-32 lg:pt-16 lg:items-center overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 w-full">
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-6 items-end lg:items-center">
+        <!-- Left: 7 cols -->
+        <div class="lg:col-span-7 relative">
+          <p class="load-1 section-num mb-6">Workforce retention platform</p>
+          <h1
+            class="load-2 font-display text-[clamp(2.5rem,6vw,5rem)] leading-[0.95] tracking-tight text-surface-900 font-bold">
+            Stop losing your<br /><span class="marker">best people.</span>
+          </h1>
+          <p class="load-3 mt-8 text-lg lg:text-xl text-surface-600 leading-relaxed max-w-lg" style="text-wrap: pretty">
+            AI-led compliance, quality &amp; onboarding overlay that sits on
+            top of your existing FSM&hairsp;—&hairsp;cutting churn, rework and
+            ramp-up time.
+          </p>
+          <div class="load-4 flex flex-wrap items-center gap-4 mt-10">
+            <a href="#contact"
+              class="group inline-flex items-center gap-2 px-6 py-3 bg-surface-900 text-white text-sm font-semibold rounded-full transition-all duration-200 hover:bg-surface-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0 active:scale-[0.97]">
+              Book a Demo
+              <svg
+                class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </a>
+            <a href="#features"
+              class="group inline-flex items-center gap-2 text-sm font-medium text-surface-500 transition-colors duration-200 hover:text-surface-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded px-2 py-1">
+              Explore the platform
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-y-0.5" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: 5 cols — Dashboard -->
+        <div class="lg:col-span-5 load-5">
+          <div class="mock-panel rounded-xl overflow-hidden shadow-xl shadow-black/8 border border-surface-200">
+            <!-- Title bar -->
+            <div class="flex items-center justify-between px-4 py-2.5 border-b border-surface-200">
+              <div class="flex items-center gap-2">
+                <div class="w-5 h-5 rounded bg-brand/10 flex items-center justify-center">
+                  <svg class="w-3 h-3 text-brand" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25a2.25 2.25 0 01-2.25-2.25v-2.25z" />
+                  </svg>
+                </div>
+                <span class="text-[11px] font-mono font-medium text-surface-500">retaind / dashboard</span>
+              </div>
+              <div class="flex gap-1.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-surface-300"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-surface-300"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-surface-300"></div>
+              </div>
+            </div>
+            <!-- Stats row -->
+            <div class="grid grid-cols-3 divide-x divide-surface-200">
+              <div class="p-4">
+                <p class="text-[10px] font-mono uppercase text-surface-400 tracking-wider">
+                  Quality
+                </p>
+                <p class="data-accent text-2xl font-semibold text-signal-green mt-1">
+                  94.2<span class="text-sm text-surface-400">%</span>
+                </p>
+              </div>
+              <div class="p-4">
+                <p class="text-[10px] font-mono uppercase text-surface-400 tracking-wider">
+                  Churn
+                </p>
+                <p class="data-accent text-2xl font-semibold text-signal-teal mt-1">
+                  –18<span class="text-sm text-surface-400">%</span>
+                </p>
+              </div>
+              <div class="p-4">
+                <p class="text-[10px] font-mono uppercase text-surface-400 tracking-wider">
+                  Ramp-up
+                </p>
+                <p class="data-accent text-2xl font-semibold text-signal-amber mt-1">
+                  +27<span class="text-sm text-surface-400">%</span>
+                </p>
+              </div>
+            </div>
+            <!-- Chart area -->
+            <div class="px-4 pt-3 pb-4 border-t border-surface-200">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-mono uppercase text-surface-400 tracking-wider">Readiness score &middot;
+                  12&thinsp;mo</span>
+                <span
+                  class="text-[10px] font-mono text-signal-green bg-signal-green/10 px-1.5 py-0.5 rounded inline-flex items-center gap-1.5"><span
+                    class="w-1.5 h-1.5 rounded-full bg-signal-green ping-dot"></span>LIVE</span>
+              </div>
+              <div class="flex items-end gap-[3px] h-16" data-chart>
+                <div class="flex-1 rounded-sm bg-surface-200 h-[28%] bar-animated" style="transition-delay: 0s"></div>
+                <div class="flex-1 rounded-sm bg-surface-200 h-[38%] bar-animated" style="transition-delay: 0.04s">
+                </div>
+                <div class="flex-1 rounded-sm bg-surface-200 h-[35%] bar-animated" style="transition-delay: 0.08s">
+                </div>
+                <div class="flex-1 rounded-sm bg-surface-300 h-[48%] bar-animated" style="transition-delay: 0.12s">
+                </div>
+                <div class="flex-1 rounded-sm bg-surface-300 h-[45%] bar-animated" style="transition-delay: 0.16s">
+                </div>
+                <div class="flex-1 rounded-sm bg-surface-300 h-[58%] bar-animated" style="transition-delay: 0.2s"></div>
+                <div class="flex-1 rounded-sm bg-surface-300 h-[55%] bar-animated" style="transition-delay: 0.24s">
+                </div>
+                <div class="flex-1 rounded-sm bg-surface-400 h-[68%] bar-animated" style="transition-delay: 0.28s">
+                </div>
+                <div class="flex-1 rounded-sm bg-surface-400 h-[72%] bar-animated" style="transition-delay: 0.32s">
+                </div>
+                <div class="flex-1 rounded-sm bg-surface-400 h-[78%] bar-animated" style="transition-delay: 0.36s">
+                </div>
+                <div class="flex-1 rounded-sm bg-surface-500 h-[85%] bar-animated" style="transition-delay: 0.4s"></div>
+                <div class="flex-1 rounded-sm bg-brand h-[94%] bar-animated" style="transition-delay: 0.44s"></div>
+              </div>
+            </div>
+            <!-- Activity rows -->
+            <div class="border-t border-surface-200 divide-y divide-surface-200">
+              <div class="flex items-center justify-between px-4 py-2.5">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-5 h-5 rounded-full bg-signal-green/15 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-signal-green" fill="none" stroke="currentColor" stroke-width="2.5"
+                      viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <span class="text-[11px] text-surface-600">Job #4821 &middot; EV charger install</span>
+                </div>
+                <span class="text-[10px] font-mono text-signal-green">passed</span>
+              </div>
+              <div class="flex items-center justify-between px-4 py-2.5">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-5 h-5 rounded-full bg-signal-amber/15 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-signal-amber" fill="none" stroke="currentColor" stroke-width="2.5"
+                      viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5" />
+                    </svg>
+                  </div>
+                  <span class="text-[11px] text-surface-600">Job #4819 &middot; Solar panel fit</span>
+                </div>
+                <span class="text-[10px] font-mono text-signal-amber">review</span>
+              </div>
+              <div class="flex items-center justify-between px-4 py-2.5">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-5 h-5 rounded-full bg-signal-red/15 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-signal-red" fill="none" stroke="currentColor" stroke-width="2.5"
+                      viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </div>
+                  <span class="text-[11px] text-surface-600">Job #4817 &middot; Consumer unit</span>
+                </div>
+                <span class="text-[10px] font-mono text-signal-red">remedial</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-center mt-3 text-[10px] font-mono text-surface-400 tracking-wide uppercase">
+            Dashboard preview &middot; product screenshot placeholder
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ PROBLEMS ░░░ -->
+  <section id="problems" class="py-28 relative">
+    <div class="h-rule"></div>
+    <div class="max-w-6xl mx-auto px-6 pt-20">
+      <div class="grid lg:grid-cols-12 gap-12">
+        <!-- Left: label -->
+        <div class="lg:col-span-4 reveal">
+          <p class="section-num mb-4">01 — The problem</p>
+          <h2 class="font-display text-3xl sm:text-4xl text-surface-900 font-bold leading-[1.1] tracking-tight">
+            Your workforce is&nbsp;bleeding margin.
+          </h2>
+          <p class="mt-4 text-surface-500 leading-relaxed">
+            Most trade and field service businesses have an
+            FSM&hairsp;—&hairsp;but still lose money through these three
+            cracks.
+          </p>
+        </div>
+        <!-- Right: 3 problems stacked vertically, each with data -->
+        <div class="lg:col-span-8 space-y-3 space-y-0">
+          <!-- Problem 1 -->
+          <div class="reveal edge-card rounded-xl p-6 lg:p-8 bg-surface-50">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-5">
+              <div
+                class="shrink-0 w-16 h-16 rounded-lg bg-signal-red/8 border border-signal-red/15 flex items-center justify-center">
+                <svg class="w-7 h-7 text-signal-red" fill="none" stroke="currentColor" stroke-width="1.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-lg font-semibold text-surface-900">
+                  Costly staff churn
+                </h3>
+                <p class="text-surface-500 mt-1.5 leading-relaxed">
+                  With construction churn at ~23%, a 100-person business loses
+                  massive value to turnover alone. 20% of that turnover
+                  happens within the first 45&nbsp;days.
+                </p>
+              </div>
+              <div class="shrink-0 text-right sm:pl-4 sm:border-l border-surface-200">
+                <p class="data-accent data-animated text-3xl font-semibold text-signal-red">
+                  £30,614
+                </p>
+                <p class="text-[10px] font-mono uppercase text-surface-400 mt-0.5 tracking-wider">
+                  cost per leaver
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem 2 -->
+          <div class="reveal reveal-delay-1 edge-card rounded-xl p-6 lg:p-8 bg-surface-50 mt-3">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-5">
+              <div
+                class="shrink-0 w-16 h-16 rounded-lg bg-signal-orange/8 border border-signal-orange/15 flex items-center justify-center">
+                <svg class="w-7 h-7 text-signal-orange" fill="none" stroke="currentColor" stroke-width="1.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-lg font-semibold text-surface-900">
+                  Rework &amp; callbacks
+                </h3>
+                <p class="text-surface-500 mt-1.5 leading-relaxed">
+                  QS bottlenecks, inconsistent evidence, and late sign-offs
+                  create a cycle of reactive firefighting. Problems found too
+                  late cost the most.
+                </p>
+              </div>
+              <div class="shrink-0 text-right sm:pl-4 sm:border-l border-surface-200">
+                <p class="data-accent data-animated text-3xl font-semibold text-signal-orange">
+                  ~5%
+                </p>
+                <p class="text-[10px] font-mono uppercase text-surface-400 mt-0.5 tracking-wider">
+                  of project value
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem 3 -->
+          <div class="reveal reveal-delay-2 edge-card rounded-xl p-6 lg:p-8 bg-surface-50 mt-3">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-5">
+              <div
+                class="shrink-0 w-16 h-16 rounded-lg bg-signal-amber/8 border border-signal-amber/15 flex items-center justify-center">
+                <svg class="w-7 h-7 text-signal-amber" fill="none" stroke="currentColor" stroke-width="1.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-lg font-semibold text-surface-900">
+                  Slow onboarding
+                </h3>
+                <p class="text-surface-500 mt-1.5 leading-relaxed">
+                  Without structured competence tracking, failing hires
+                  aren&rsquo;t caught until it&rsquo;s too late. 18% of
+                  workers have probation extended or fail entirely.
+                </p>
+              </div>
+              <div class="shrink-0 text-right sm:pl-4 sm:border-l border-surface-200">
+                <p class="data-accent data-animated text-3xl font-semibold text-signal-amber">
+                  ~15<span class="text-lg text-surface-400"> wk</span>
+                </p>
+                <p class="text-[10px] font-mono uppercase text-surface-400 mt-0.5 tracking-wider">
+                  to productivity
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ SAVINGS ░░░ -->
+  <section id="savings" class="py-28 relative">
+    <div class="h-rule"></div>
+    <div class="max-w-6xl mx-auto px-6 pt-20">
+      <div class="reveal text-center">
+        <p class="section-num mb-4">02 — The return</p>
+        <h2
+          class="font-display text-3xl sm:text-4xl lg:text-5xl text-surface-900 font-bold leading-[1.05] tracking-tight">
+          RETAIND fixes this, saving
+        </h2>
+      </div>
+
+      <div class="reveal mt-12 text-center">
+        <p
+          class="data-accent savings-animated text-[clamp(3.5rem,10vw,8rem)] font-semibold text-surface-900 leading-none tracking-tighter">
+          £125k–175k<span class="text-surface-300">+</span>
+        </p>
+        <p class="mt-3 text-lg text-surface-500">
+          per year, per 100 field workers
+        </p>
+        <p class="mt-2 text-sm text-surface-400 max-w-md mx-auto">
+          Conservative estimate from churn and ramp-up improvements
+          alone&hairsp;—&hairsp;<em>before</em> rework, QS time, complaints,
+          and compliance risk.
+        </p>
+      </div>
+
+      <!-- Breakdown -->
+      <div
+        class="reveal mt-16 grid sm:grid-cols-3 max-w-3xl mx-auto border border-surface-200 rounded-xl divide-y sm:divide-y-0 sm:divide-x divide-surface-200 bg-surface-50">
+        <div class="p-6 text-center">
+          <p class="data-accent text-3xl font-semibold text-surface-900">
+            10%
+          </p>
+          <p class="text-sm text-surface-500 font-medium mt-1">
+            Churn reduction
+          </p>
+          <p class="text-[11px] font-mono text-surface-400 mt-1">
+            ~£70k–£104k saved
+          </p>
+        </div>
+        <div class="p-6 text-center">
+          <p class="data-accent text-3xl font-semibold text-surface-900">
+            10%
+          </p>
+          <p class="text-sm text-surface-500 font-medium mt-1">
+            Faster ramp-up
+          </p>
+          <p class="text-[11px] font-mono text-surface-400 mt-1">
+            ~£26k–£39k saved
+          </p>
+        </div>
+        <div class="p-6 text-center">
+          <p class="data-accent text-3xl font-semibold text-surface-900">1</p>
+          <p class="text-sm text-surface-500 font-medium mt-1">
+            Failed hire prevented
+          </p>
+          <p class="text-[11px] font-mono text-surface-400 mt-1">
+            ~£30.6k saved
+          </p>
+        </div>
+      </div>
+
+      <p class="reveal text-[11px] font-mono text-surface-400 text-center mt-6 tracking-wide">
+        Sources: Oxford Economics, CIPD UK, GIRI construction rework studies
+      </p>
+    </div>
+  </section>
+
+  <!-- ░░░ FEATURES ░░░ -->
+  <section id="features" class="py-28 relative">
+    <div class="h-rule"></div>
+    <div class="max-w-6xl mx-auto px-6 pt-20">
+      <div class="reveal mb-20">
+        <p class="section-num mb-4">03 — The platform</p>
+        <h2 class="font-display text-3xl sm:text-4xl text-surface-900 font-bold leading-[1.1] tracking-tight max-w-lg">
+          Four hubs. One&nbsp;overlay.<br />No rip-and-replace.
+        </h2>
+      </div>
+
+      <!-- Hub 1 -->
+      <div class="reveal grid lg:grid-cols-12 gap-8 items-start mb-20">
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="data-accent text-xs text-surface-400">hub&thinsp;01</span>
+            <div class="flex-1 h-px bg-surface-200"></div>
+          </div>
+          <h3 class="font-display text-2xl text-surface-900 font-bold mb-3">
+            Compliance &amp; Certification
+          </h3>
+          <p class="text-surface-500 leading-relaxed mb-5">
+            The QS home. Define standards by trade, job type, client and
+            region. Require specific evidence, run review queues, generate
+            certs with full audit trails.
+          </p>
+          <ul class="stagger-list space-y-2.5 text-sm text-surface-600">
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span> Pass /
+              fail / remedial / escalation workflows
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span> Photo,
+              form, test value &amp; timestamp evidence
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span> Full
+              audit trail for every sign-off decision
+            </li>
+          </ul>
+        </div>
+        <div class="lg:col-span-7">
+          <div class="mock-panel rounded-xl overflow-hidden">
+            <div class="px-4 py-2.5 border-b border-surface-200 flex items-center justify-between">
+              <span class="text-[10px] font-mono uppercase text-surface-400 tracking-wider">Compliance Hub</span>
+              <span class="text-[10px] font-mono text-signal-green bg-signal-green/10 px-1.5 py-0.5 rounded">3
+                pending</span>
+            </div>
+            <div class="grid grid-cols-2 divide-x divide-surface-200 border-b border-surface-200">
+              <div class="p-4 text-center">
+                <p class="data-accent text-2xl font-semibold text-signal-green">
+                  247
+                </p>
+                <p class="text-[10px] font-mono uppercase text-surface-400 mt-0.5 tracking-wider">
+                  Jobs passed
+                </p>
+              </div>
+              <div class="p-4 text-center">
+                <p class="data-accent text-2xl font-semibold text-signal-red">
+                  12
+                </p>
+                <p class="text-[10px] font-mono uppercase text-surface-400 mt-0.5 tracking-wider">
+                  Remedials open
+                </p>
+              </div>
+            </div>
+            <div class="divide-y divide-surface-200">
+              <div class="flex items-center justify-between px-4 py-2.5">
+                <span class="text-[11px] text-surface-600">Job #4821 &middot; EV charger install &middot;
+                  <span class="text-surface-400">J.&thinsp;Wilson</span></span>
+                <span class="text-[10px] font-mono text-signal-green">passed</span>
+              </div>
+              <div class="flex items-center justify-between px-4 py-2.5">
+                <span class="text-[11px] text-surface-600">Job #4819 &middot; Solar panel fit &middot;
+                  <span class="text-surface-400">M.&thinsp;Roberts</span></span>
+                <span class="text-[10px] font-mono text-signal-amber">review</span>
+              </div>
+              <div class="flex items-center justify-between px-4 py-2.5">
+                <span class="text-[11px] text-surface-600">Job #4817 &middot; Consumer unit &middot;
+                  <span class="text-surface-400">T.&thinsp;Patel</span></span>
+                <span class="text-[10px] font-mono text-signal-red">remedial</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hub 2 -->
+      <div class="reveal grid lg:grid-cols-12 gap-8 items-start mb-20">
+        <div class="lg:col-span-7 order-2 lg:order-1">
+          <div class="mock-panel rounded-xl overflow-hidden">
+            <div class="px-4 py-2.5 border-b border-surface-200">
+              <span class="text-[10px] font-mono uppercase text-surface-400 tracking-wider">Audit pass rate by
+                region</span>
+            </div>
+            <div class="p-4 space-y-3">
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-surface-600">North West</span><span class="data-accent text-signal-green">96%</span>
+                </div>
+                <div class="h-1.5 rounded-full bg-surface-200 overflow-hidden">
+                  <div class="h-full rounded-full bg-signal-green fill-animated" style="width: 96%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-surface-600">South East</span><span class="data-accent text-signal-teal">89%</span>
+                </div>
+                <div class="h-1.5 rounded-full bg-surface-200 overflow-hidden">
+                  <div class="h-full rounded-full bg-signal-teal fill-animated"
+                    style="width: 89%; transition-delay: 0.1s"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-surface-600">Midlands</span><span class="data-accent text-signal-amber">74%</span>
+                </div>
+                <div class="h-1.5 rounded-full bg-surface-200 overflow-hidden">
+                  <div class="h-full rounded-full bg-signal-amber fill-animated"
+                    style="width: 74%; transition-delay: 0.2s"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-surface-600">London</span><span class="data-accent text-signal-red">68%</span>
+                </div>
+                <div class="h-1.5 rounded-full bg-surface-200 overflow-hidden">
+                  <div class="h-full rounded-full bg-signal-red fill-animated"
+                    style="width: 68%; transition-delay: 0.3s"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 order-1 lg:order-2">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="data-accent text-xs text-surface-400">hub&thinsp;02</span>
+            <div class="flex-1 h-px bg-surface-200"></div>
+          </div>
+          <h3 class="font-display text-2xl text-surface-900 font-bold mb-3">
+            Quality, Audits &amp;&nbsp;Remedials
+          </h3>
+          <p class="text-surface-500 leading-relaxed mb-5">
+            QA frameworks with defect taxonomy, blind audits, targeted
+            sampling, and remedial workflows. Dashboards by team and region.
+          </p>
+          <ul class="stagger-list space-y-2.5 text-sm text-surface-600">
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span> Blind
+              audits &amp; targeted sampling rules
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span> Remedial
+              workflows &amp; re-audit tracking
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span> Region
+              &amp; team performance dashboards
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Hub 3 -->
+      <div class="reveal grid lg:grid-cols-12 gap-8 items-start mb-20">
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="data-accent text-xs text-surface-400">hub&thinsp;03</span>
+            <div class="flex-1 h-px bg-surface-200"></div>
+          </div>
+          <h3 class="font-display text-2xl text-surface-900 font-bold mb-3">
+            Training, CPD &amp;&nbsp;Competence
+          </h3>
+          <p class="text-surface-500 leading-relaxed mb-5">
+            CPD records, toolbox talks, and manufacturer modules linked to
+            real job outcomes. Skills matrices per trade and role.
+          </p>
+          <ul class="stagger-list space-y-2.5 text-sm text-surface-600">
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span> Training
+              linked to outcome data
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span> Skills
+              matrices per trade &amp; role
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span>
+              QS/Training scored reviews
+            </li>
+          </ul>
+        </div>
+        <div class="lg:col-span-7">
+          <div class="mock-panel rounded-xl overflow-hidden">
+            <div class="px-4 py-2.5 border-b border-surface-200">
+              <span class="text-[10px] font-mono uppercase text-surface-400 tracking-wider">Skills matrix &middot;
+                Electrical team</span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-[11px]">
+                <thead>
+                  <tr class="border-b border-surface-200">
+                    <th
+                      class="text-left font-mono font-medium text-surface-400 px-4 py-2.5 uppercase tracking-wider text-[10px]">
+                      Engineer
+                    </th>
+                    <th
+                      class="text-center font-mono font-medium text-surface-400 px-3 py-2.5 uppercase tracking-wider text-[10px]">
+                      18th Ed
+                    </th>
+                    <th
+                      class="text-center font-mono font-medium text-surface-400 px-3 py-2.5 uppercase tracking-wider text-[10px]">
+                      EV Install
+                    </th>
+                    <th
+                      class="text-center font-mono font-medium text-surface-400 px-3 py-2.5 uppercase tracking-wider text-[10px]">
+                      Solar PV
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-surface-200">
+                  <tr>
+                    <td class="px-4 py-2.5 text-surface-600">
+                      J.&thinsp;Wilson
+                    </td>
+                    <td class="px-3 py-2.5 text-center">
+                      <span class="text-signal-green">&#10003;</span>
+                    </td>
+                    <td class="px-3 py-2.5 text-center">
+                      <span class="text-signal-green">&#10003;</span>
+                    </td>
+                    <td class="px-3 py-2.5 text-center">
+                      <span class="text-[10px] font-mono text-signal-amber">in progress</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-2.5 text-surface-600">
+                      M.&thinsp;Roberts
+                    </td>
+                    <td class="px-3 py-2.5 text-center">
+                      <span class="text-signal-green">&#10003;</span>
+                    </td>
+                    <td class="px-3 py-2.5 text-center">
+                      <span class="text-[10px] font-mono text-signal-amber">in progress</span>
+                    </td>
+                    <td class="px-3 py-2.5 text-center">
+                      <span class="text-[10px] font-mono text-surface-400">&mdash;</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-2.5 text-surface-600">
+                      T.&thinsp;Patel
+                    </td>
+                    <td class="px-3 py-2.5 text-center">
+                      <span class="text-signal-green">&#10003;</span>
+                    </td>
+                    <td class="px-3 py-2.5 text-center">
+                      <span class="text-signal-green">&#10003;</span>
+                    </td>
+                    <td class="px-3 py-2.5 text-center">
+                      <span class="text-signal-green">&#10003;</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hub 4 -->
+      <div class="reveal grid lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-7 order-2 lg:order-1">
+          <div class="mock-panel rounded-xl overflow-hidden">
+            <div class="px-4 py-2.5 border-b border-surface-200 flex items-center justify-between">
+              <span class="text-[10px] font-mono uppercase text-surface-400 tracking-wider">New starter &middot; Alex
+                Morgan</span>
+              <span class="text-[10px] font-mono text-signal-green bg-signal-green/10 px-1.5 py-0.5 rounded">on
+                track</span>
+            </div>
+            <div class="p-4 space-y-3">
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-surface-500">Onboarding progress</span><span
+                    class="data-accent text-surface-700">62%</span>
+                </div>
+                <div class="h-1.5 rounded-full bg-surface-200 overflow-hidden">
+                  <div class="h-full rounded-full bg-brand fill-animated" style="width: 62%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-surface-500">Competence checkpoints</span><span
+                    class="data-accent text-surface-700">4/7</span>
+                </div>
+                <div class="h-1.5 rounded-full bg-surface-200 overflow-hidden">
+                  <div class="h-full rounded-full bg-signal-teal fill-animated"
+                    style="width: 57%; transition-delay: 0.1s"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-surface-500">Portfolio evidence</span><span class="data-accent text-surface-700">8
+                    items</span>
+                </div>
+                <div class="h-1.5 rounded-full bg-surface-200 overflow-hidden">
+                  <div class="h-full rounded-full bg-signal-amber fill-animated"
+                    style="width: 40%; transition-delay: 0.2s"></div>
+                </div>
+              </div>
+            </div>
+            <div class="px-4 py-3 border-t border-signal-amber/20 bg-signal-amber/5 flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-signal-amber shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+              </svg>
+              <div>
+                <p class="text-[11px] font-semibold text-signal-amber">
+                  Early warning
+                </p>
+                <p class="text-[11px] text-surface-500">
+                  Sam Taylor (wk&thinsp;3) &mdash; missed 2 checkpoints.
+                  Mentor review triggered.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 order-1 lg:order-2">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="data-accent text-xs text-surface-400">hub&thinsp;04</span>
+            <div class="flex-1 h-px bg-surface-200"></div>
+          </div>
+          <h3 class="font-display text-2xl text-surface-900 font-bold mb-3">
+            Onboarding &amp;&nbsp;Readiness
+          </h3>
+          <p class="text-surface-500 leading-relaxed mb-5">
+            Templates per role, mentor assignment, portfolio assembly from
+            live job evidence, competence checkpoints. Early warning signals
+            flag underperformance before probation fails.
+          </p>
+          <ul class="stagger-list space-y-2.5 text-sm text-surface-600">
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span> Mentor
+              assignment &amp; shadowing logs
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span>
+              Auto-assembled portfolio from job evidence
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-brand mt-0.5 text-xs">&#9646;</span> Early
+              warning signals for probation risk
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ AI OVERLAY ░░░ -->
+  <section class="py-20 relative">
+    <div class="h-rule"></div>
+    <div class="max-w-6xl mx-auto px-6 pt-16">
+      <div class="reveal grid lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-4">
+          <p class="section-num mb-4">04 — The intelligence</p>
+          <h2 class="font-display text-2xl sm:text-3xl text-surface-900 font-bold leading-[1.1] tracking-tight">
+            AI flags.<br />Humans sign&nbsp;off.
+          </h2>
+          <p class="mt-4 text-surface-500 leading-relaxed text-sm">
+            Human-in-the-loop by design. Everything logged for audit
+            accountability.
+          </p>
+        </div>
+        <div class="lg:col-span-8 grid sm:grid-cols-3 gap-4">
+          <div class="reveal edge-card rounded-xl p-5 bg-surface-50">
+            <div class="w-10 h-10 rounded bg-brand/8 border border-brand/15 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+              </svg>
+            </div>
+            <h3 class="text-sm font-semibold text-surface-900 mb-1">
+              Evidence checks
+            </h3>
+            <p class="text-xs text-surface-500 leading-relaxed">
+              Missing photos, wrong angles, unreadable labels &mdash; caught
+              before QS review.
+            </p>
+          </div>
+          <div class="reveal reveal-delay-1 edge-card rounded-xl p-5 bg-surface-50">
+            <div class="w-10 h-10 rounded bg-brand/8 border border-brand/15 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+              </svg>
+            </div>
+            <h3 class="text-sm font-semibold text-surface-900 mb-1">
+              Anomaly detection
+            </h3>
+            <p class="text-xs text-surface-500 leading-relaxed">
+              Data conflicts between forms, notes and evidence flagged
+              automatically.
+            </p>
+          </div>
+          <div class="reveal reveal-delay-2 edge-card rounded-xl p-5 bg-surface-50">
+            <div class="w-10 h-10 rounded bg-brand/8 border border-brand/15 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+              </svg>
+            </div>
+            <h3 class="text-sm font-semibold text-surface-900 mb-1">
+              Smart audits
+            </h3>
+            <p class="text-xs text-surface-500 leading-relaxed">
+              Prioritises what to review and who to sample based on risk
+              signals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ FAQ ░░░ -->
+  <section id="faq" class="py-28 relative">
+    <div class="h-rule"></div>
+    <div class="max-w-3xl mx-auto px-6 pt-20">
+      <div class="reveal mb-12">
+        <p class="section-num mb-4">05 — FAQ</p>
+        <h2 class="font-display text-3xl text-surface-900 font-bold tracking-tight">
+          Common questions
+        </h2>
+      </div>
+
+      <div class="reveal" id="faq-list">
+        <div class="faq-item py-5">
+          <button
+            class="faq-toggle w-full flex items-center justify-between text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
+            aria-expanded="false">
+            <span class="text-sm font-medium text-surface-800 group-hover:text-surface-900 pr-4">Do I have to replace my
+              existing FSM?</span>
+            <span class="faq-plus text-surface-400 text-xl leading-none shrink-0 font-light">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-sm text-surface-500 leading-relaxed pt-3">
+              No. RETAIND is an overlay that integrates with your existing
+              field service management tools via API. We pull jobs, evidence,
+              and outcomes from your FSM&hairsp;—&hairsp;no rip-and-replace
+              needed.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item py-5">
+          <button
+            class="faq-toggle w-full flex items-center justify-between text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
+            aria-expanded="false">
+            <span class="text-sm font-medium text-surface-800 group-hover:text-surface-900 pr-4">Where does the
+              £125k&ndash;£175k saving come from?</span>
+            <span class="faq-plus text-surface-400 text-xl leading-none shrink-0 font-light">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-sm text-surface-500 leading-relaxed pt-3">
+              Conservative modelling for a 100-engineer business: 10% churn
+              reduction (~£70k&ndash;£104k), 10% faster time-to-productivity
+              (~£26k&ndash;£39k), and preventing 1 failed hire per year
+              (~£30.6k). This excludes rework, callback, and compliance
+              savings.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item py-5">
+          <button
+            class="faq-toggle w-full flex items-center justify-between text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
+            aria-expanded="false">
+            <span class="text-sm font-medium text-surface-800 group-hover:text-surface-900 pr-4">What trades and sectors
+              does RETAIND support?</span>
+            <span class="faq-plus text-surface-400 text-xl leading-none shrink-0 font-light">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-sm text-surface-500 leading-relaxed pt-3">
+              We start with electrical contracting, EV charging, solar, and
+              heat pumps&hairsp;—&hairsp;sectors where compliance is heavy and
+              evidence matters. We also support multi-trade FM and M&amp;E
+              contractors, with vertical packs planned for HVAC and broader
+              construction.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item py-5">
+          <button
+            class="faq-toggle w-full flex items-center justify-between text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
+            aria-expanded="false">
+            <span class="text-sm font-medium text-surface-800 group-hover:text-surface-900 pr-4">How does the AI
+              work&hairsp;—&hairsp;does it make decisions
+              automatically?</span>
+            <span class="faq-plus text-surface-400 text-xl leading-none shrink-0 font-light">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-sm text-surface-500 leading-relaxed pt-3">
+              No. RETAIND is human-in-the-loop by design. AI flags and
+              prioritises issues&hairsp;—&hairsp;evidence gaps, quality
+              anomalies, worker risk signals&hairsp;—&hairsp;but humans always
+              sign off. Everything is logged for full audit accountability.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item py-5">
+          <button
+            class="faq-toggle w-full flex items-center justify-between text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
+            aria-expanded="false">
+            <span class="text-sm font-medium text-surface-800 group-hover:text-surface-900 pr-4">How is RETAIND
+              priced?</span>
+            <span class="faq-plus text-surface-400 text-xl leading-none shrink-0 font-light">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-sm text-surface-500 leading-relaxed pt-3">
+              Flexible pricing: per active field worker per month, base
+              platform fee + worker seats, or worker seats + per compliant
+              job. Book a demo and we&rsquo;ll walk you through the model that
+              fits your operation.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item py-5">
+          <button
+            class="faq-toggle w-full flex items-center justify-between text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
+            aria-expanded="false">
+            <span class="text-sm font-medium text-surface-800 group-hover:text-surface-900 pr-4">How long does
+              integration take?</span>
+            <span class="faq-plus text-surface-400 text-xl leading-none shrink-0 font-light">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-sm text-surface-500 leading-relaxed pt-3">
+              RETAIND connects to your FSM via API with a connector framework
+              designed for rapid integration. A pilot with a single division
+              can be running within weeks, not months.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ CONTACT ░░░ -->
+  <section id="contact" class="py-28 relative">
+    <div class="h-rule"></div>
+    <div class="max-w-6xl mx-auto px-6 pt-20">
+      <div class="grid lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-5 reveal">
+          <p class="section-num mb-4">06 — Get started</p>
+          <h2 class="font-display text-3xl sm:text-4xl text-surface-900 font-bold leading-[1.1] tracking-tight">
+            Ready to retain more&nbsp;value?
+          </h2>
+          <p class="mt-4 text-surface-500 leading-relaxed">
+            Book a demo to see how RETAIND can save your business £125k+ per
+            year. We&rsquo;ll walk through the platform and model the ROI for
+            your team size.
+          </p>
+          <div class="mt-8 space-y-4 text-sm">
+            <div class="flex items-center gap-3 text-surface-500">
+              <svg class="w-4 h-4 text-brand shrink-0" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              <a href="mailto:hello@retaind.io"
+                class="hover:text-surface-900 transition-colors duration-200">hello@retaind.io</a>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-7 reveal reveal-delay-1">
+          <form class="bg-surface-50 border border-surface-200 rounded-xl p-6 lg:p-8 space-y-5" action="#" method="POST"
+            novalidate>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="name" class="block text-xs font-mono uppercase tracking-wider text-surface-400 mb-1.5">Full
+                  name</label>
+                <input id="name" name="name" type="text" required autocomplete="name" placeholder="Jane Smith&#8230;"
+                  spellcheck="false"
+                  class="w-full px-3.5 py-2.5 rounded bg-surface-0 border border-surface-200 text-surface-800 placeholder-surface-400 text-sm font-body transition-all duration-200 focus:border-brand focus:ring-1 focus:ring-brand/30 focus:outline-none" />
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-mono uppercase tracking-wider text-surface-400 mb-1.5">Work
+                  email</label>
+                <input id="email" name="email" type="email" required autocomplete="email"
+                  placeholder="jane@company.co.uk&#8230;" spellcheck="false"
+                  class="w-full px-3.5 py-2.5 rounded bg-surface-0 border border-surface-200 text-surface-800 placeholder-surface-400 text-sm font-body transition-all duration-200 focus:border-brand focus:ring-1 focus:ring-brand/30 focus:outline-none" />
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="company"
+                  class="block text-xs font-mono uppercase tracking-wider text-surface-400 mb-1.5">Company</label>
+                <input id="company" name="company" type="text" autocomplete="organization"
+                  placeholder="Company name&#8230;"
+                  class="w-full px-3.5 py-2.5 rounded bg-surface-0 border border-surface-200 text-surface-800 placeholder-surface-400 text-sm font-body transition-all duration-200 focus:border-brand focus:ring-1 focus:ring-brand/30 focus:outline-none" />
+              </div>
+              <div>
+                <label for="field-workers"
+                  class="block text-xs font-mono uppercase tracking-wider text-surface-400 mb-1.5">Field workers</label>
+                <select id="field-workers" name="field-workers"
+                  class="w-full px-3.5 py-2.5 rounded bg-surface-0 border border-surface-200 text-surface-800 text-sm font-body transition-all duration-200 focus:border-brand focus:ring-1 focus:ring-brand/30 focus:outline-none appearance-none">
+                  <option value="">Select range&#8230;</option>
+                  <option value="1-50">1&ndash;50</option>
+                  <option value="51-100">51&ndash;100</option>
+                  <option value="101-250">101&ndash;250</option>
+                  <option value="251-500">251&ndash;500</option>
+                  <option value="500+">500+</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="message"
+                class="block text-xs font-mono uppercase tracking-wider text-surface-400 mb-1.5">Message
+                <span class="text-surface-300">(optional)</span></label>
+              <textarea id="message" name="message" rows="3" placeholder="Tell us about your biggest pain points&#8230;"
+                class="w-full px-3.5 py-2.5 rounded bg-surface-0 border border-surface-200 text-surface-800 placeholder-surface-400 text-sm font-body transition-all duration-200 focus:border-brand focus:ring-1 focus:ring-brand/30 focus:outline-none resize-none"></textarea>
+            </div>
+            <button type="submit"
+              class="group inline-flex items-center gap-2 px-6 py-3 bg-surface-900 text-white text-sm font-semibold rounded-full transition-all duration-200 hover:bg-surface-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-50 active:scale-[0.97]">
+              Book my demo
+              <svg
+                class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ FOOTER ░░░ -->
+  <footer class="border-t border-surface-200 bg-surface-50">
+    <div class="max-w-6xl mx-auto px-6 py-10">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div class="flex items-center gap-2.5">
+          <div
+            class="w-6 h-6 bg-brand flex items-center justify-center rounded-md text-[10px] font-mono font-bold text-surface-900">
+            R
+          </div>
+          <span class="font-display text-sm text-surface-800 font-bold">RETAIND</span>
+          <span class="text-surface-300 text-xs ml-1">&middot;</span>
+          <span class="text-xs text-surface-500">Retain staff. Retain skills. Retain value.</span>
+        </div>
+        <div class="flex items-center gap-6 text-xs text-surface-400">
+          <a href="#" class="hover:text-surface-700 transition-colors duration-200">Privacy</a>
+          <a href="#" class="hover:text-surface-700 transition-colors duration-200">Terms</a>
+          <span>&copy;&thinsp;2026</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ░░░ SCRIPTS ░░░ -->
+  <script>
+    // Intersection observer for scroll reveals
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("visible");
+        });
+      },
+      {threshold: 0.08, rootMargin: "0px 0px -40px 0px"},
+    );
+    document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+
+    // H-rule draw-in on scroll
+    const ruleObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("drawn");
+            ruleObs.unobserve(e.target);
+          }
+        });
+      },
+      {threshold: 0.5},
+    );
+    document.querySelectorAll(".h-rule").forEach((el) => ruleObs.observe(el));
+
+    // Chart bars grow on scroll
+    const barObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target
+              .querySelectorAll(".bar-animated")
+              .forEach((b) => b.classList.add("grown"));
+            barObs.unobserve(e.target);
+          }
+        });
+      },
+      {threshold: 0.3},
+    );
+    document
+      .querySelectorAll("[data-chart]")
+      .forEach((el) => barObs.observe(el));
+
+    // Progress bar fills on scroll
+    const fillObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("filled");
+            fillObs.unobserve(e.target);
+          }
+        });
+      },
+      {threshold: 0.5},
+    );
+    document
+      .querySelectorAll(".fill-animated")
+      .forEach((el) => fillObs.observe(el));
+
+    // Data number pop on scroll
+    const dataObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("popped");
+            dataObs.unobserve(e.target);
+          }
+        });
+      },
+      {threshold: 0.5},
+    );
+    document
+      .querySelectorAll(".data-animated")
+      .forEach((el) => dataObs.observe(el));
+
+    // Savings number pop on scroll
+    const savObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("popped");
+            savObs.unobserve(e.target);
+          }
+        });
+      },
+      {threshold: 0.3},
+    );
+    document
+      .querySelectorAll(".savings-animated")
+      .forEach((el) => savObs.observe(el));
+
+    // Stagger list items on scroll
+    const listObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            listObs.unobserve(e.target);
+          }
+        });
+      },
+      {threshold: 0.3},
+    );
+    document
+      .querySelectorAll(".stagger-list")
+      .forEach((el) => listObs.observe(el));
+
+    // Hero chart bars — animate after page load delay
+    setTimeout(() => {
+      document
+        .querySelectorAll("[data-chart] .bar-animated")
+        .forEach((b) => b.classList.add("grown"));
+    }, 900);
+
+    // FAQ accordion
+    document.querySelectorAll(".faq-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item");
+        const wasOpen = item.classList.contains("open");
+        document.querySelectorAll(".faq-item").forEach((i) => {
+          i.classList.remove("open");
+          i.querySelector(".faq-toggle").setAttribute(
+            "aria-expanded",
+            "false",
+          );
+        });
+        if (!wasOpen) {
+          item.classList.add("open");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuBtn.addEventListener("click", () => {
+      const exp = menuBtn.getAttribute("aria-expanded") === "true";
+      menuBtn.setAttribute("aria-expanded", String(!exp));
+      mobileMenu.classList.toggle("hidden");
+    });
+    mobileMenu.querySelectorAll("a").forEach((l) => {
+      l.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener("click", (e) => {
+        const t = document.querySelector(a.getAttribute("href"));
+        if (t) {
+          e.preventDefault();
+          t.scrollIntoView({behavior: "smooth"});
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
