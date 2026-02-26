@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Geist:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -56,4 +58,335 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ========================================
+   LANDING PAGE STYLES
+   ======================================== */
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Keyframe animations */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes marker-wipe {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes ping-subtle {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Load animations */
+.load-1 {
+  opacity: 0;
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.load-2 {
+  opacity: 0;
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+
+.load-3 {
+  opacity: 0;
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.load-4 {
+  opacity: 0;
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+}
+
+.load-5 {
+  opacity: 0;
+  animation: reveal-in 1s ease 0.7s forwards;
+}
+
+/* Scroll-triggered reveals */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* Vertical rule */
+.v-rule {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, #e5e5e5 20%, #e5e5e5 80%, transparent);
+}
+
+/* Horizontal rule */
+.h-rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e5e5e5 15%, #e5e5e5 85%, transparent);
+  transform: scaleX(0);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.h-rule.drawn {
+  transform: scaleX(1);
+}
+
+/* Chart bar animation */
+.bar-animated {
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bar-animated.grown {
+  transform: scaleY(1);
+}
+
+/* Progress bar fill animation */
+.fill-animated {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fill-animated.filled {
+  transform: scaleX(1);
+}
+
+/* Data number animation */
+.data-animated {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.data-animated.popped {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Savings number animation */
+.savings-animated {
+  opacity: 0;
+  transform: translateY(24px) scale(0.92);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.savings-animated.popped {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered feature list items */
+.stagger-list li {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger-list.visible li:nth-child(1) { transition-delay: 0.05s; }
+.stagger-list.visible li:nth-child(2) { transition-delay: 0.12s; }
+.stagger-list.visible li:nth-child(3) { transition-delay: 0.19s; }
+
+.stagger-list.visible li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Ping for LIVE badge */
+.ping-dot {
+  position: relative;
+}
+
+.ping-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: ping-subtle 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Nav link underline wipe */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #a9ed42;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Data emphasis */
+.data-accent {
+  font-family: "Geist", system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Editorial marker */
+.marker {
+  position: relative;
+  display: inline;
+}
+
+.marker::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.08em;
+  width: 100%;
+  height: 0.18em;
+  background: #a9ed42;
+  opacity: 0.45;
+  z-index: -1;
+  transform-origin: left;
+  animation: marker-wipe 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+/* Section numbering */
+.section-num {
+  font-family: "Geist", system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  background: #f0ffd1;
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+/* Card hover */
+.edge-card {
+  position: relative;
+  border: 1px solid #e5e5e5;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
+}
+
+.edge-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #a9ed42;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.edge-card:hover {
+  border-color: #d4d4d4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.08);
+}
+
+.edge-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Dashboard mock */
+.mock-panel {
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+}
+
+/* FAQ */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+}
+
+.faq-item.open .faq-plus {
+  transform: rotate(45deg);
+}
+
+.faq-plus {
+  transition: transform 0.3s ease;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Scroll offset */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Custom selection */
+::selection {
+  background: rgba(169, 237, 66, 0.3);
 }
