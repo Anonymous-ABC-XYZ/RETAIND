@@ -10,27 +10,30 @@ export function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden bg-white">
+    <div className="h-screen flex flex-col overflow-hidden bg-surface-50">
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/50 lg:hidden"
+          className="fixed inset-0 z-40 bg-surface-900/60 backdrop-blur-sm lg:hidden transition-opacity"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* Mobile header */}
-      <div className="lg:hidden flex items-center justify-between h-14 px-4 border-b bg-white">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">R</span>
+      <div className="lg:hidden flex items-center justify-between h-16 px-4 border-b border-surface-200 bg-white">
+        <div className="flex items-center gap-3">
+          <div className="h-9 w-9 rounded-xl bg-surface-900 flex items-center justify-center">
+            <span className="text-white font-display font-bold text-lg">R</span>
           </div>
-          <span className="font-semibold text-xl">RETAIND</span>
+          <span className="font-display font-bold text-lg tracking-tight text-surface-900">
+            RET<span className="text-brand">AI</span>ND
+          </span>
         </div>
         <Button
           variant="ghost"
           size="icon"
           onClick={() => setSidebarOpen(!sidebarOpen)}
+          className="h-10 w-10 rounded-xl hover:bg-surface-100"
         >
           {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
@@ -40,7 +43,7 @@ export function AppLayout() {
         {/* Sidebar - hidden on mobile, shown in overlay when open */}
         <div
           className={cn(
-            "fixed inset-y-0 left-0 z-50 w-64 transform transition-transform duration-200 ease-in-out lg:relative lg:translate-x-0",
+            "fixed inset-y-0 left-0 z-50 w-64 transform transition-transform duration-300 ease-out lg:relative lg:translate-x-0 shadow-xl lg:shadow-none",
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
           )}
         >
@@ -60,8 +63,8 @@ export function AppLayout() {
           </div>
 
           {/* Page content */}
-          <main className="flex-1 overflow-auto bg-slate-50/50">
-            <div className="p-6">
+          <main className="flex-1 overflow-auto app-bg">
+            <div className="p-6 lg:p-8 max-w-7xl mx-auto">
               <Outlet />
             </div>
           </main>
