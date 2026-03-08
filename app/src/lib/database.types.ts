@@ -931,6 +931,9 @@ export interface Database {
         }
       }
     }
+    Views: {
+      [_ in never]: never
+    }
     Functions: {
       calculate_worker_risk_score: {
         Args: { worker_uuid: string }
@@ -948,6 +951,12 @@ export interface Database {
         Args: { invite_token: string }
         Returns: Json
       }
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
     }
   }
 }
