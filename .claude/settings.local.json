@@ -1,7 +1,20 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:retaind.lovable.app)"
+      "WebFetch(domain:retaind.lovable.app)",
+      "Skill(systematic-debugging)",
+      "Bash(git -C /home/abc/Programming/RETAIND status app/src/lib/database.types.ts)",
+      "Bash(git -C /home/abc/Programming/RETAIND restore:*)",
+      "Bash(git -C /home/abc/Programming/RETAIND diff app/src/pages/Contact.tsx)",
+      "Bash(npx --package=typescript tsc:*)",
+      "WebFetch(domain:supabase.com)",
+      "WebSearch",
+      "Bash(git -C /home/abc/Programming/RETAIND show HEAD:app/src/lib/database.types.ts)",
+      "Bash(git -C /home/abc/Programming/RETAIND add app/src/lib/database.types.ts)",
+      "Bash(git -C /home/abc/Programming/RETAIND commit -m \"$\\(cat <<''EOF''\nFix TypeScript type inference for Supabase tables\n\nAdded Relationships field to all table definitions in database.types.ts\nto fix type inference issues with @supabase/supabase-js v2.97.0.\n\nThis resolves the TypeScript error where beta_contacts table insert\noperations were incorrectly typed as ''never''.\n\nChanges:\n- Added empty Relationships: [] to all table definitions\n- Added proper foreign key relationship for user_organisations -> organisations\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
-  }
+  },
+  "disabledMcpjsonServers": [
+    "supabase"
+  ]
 }
