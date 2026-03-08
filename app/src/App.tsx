@@ -8,6 +8,7 @@ import { AppLayout } from '@/components/layouts/AppLayout'
 const Landing = lazy(() => import('@/pages/Landing'))
 const SignIn = lazy(() => import('@/pages/SignIn'))
 const SignUp = lazy(() => import('@/pages/SignUp'))
+const Contact = lazy(() => import('@/pages/Contact'))
 const Dashboard = lazy(() => import('@/pages/Dashboard'))
 const People = lazy(() => import('@/pages/People'))
 const WorkerProfile = lazy(() => import('@/pages/WorkerProfile'))
@@ -87,6 +88,7 @@ export default function App() {
               </PublicRoute>
             }
           />
+          <Route path="/contact" element={<Contact />} />
 
           {/* Protected app routes */}
           <Route

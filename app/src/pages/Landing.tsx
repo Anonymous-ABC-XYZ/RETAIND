@@ -248,10 +248,10 @@ export default function Landing() {
             </a>
           </div>
           <Link
-            to="/signin"
+            to="/contact"
             className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-surface-900 text-surface-0 text-xs font-semibold tracking-wide uppercase rounded-full transition-all duration-200 hover:bg-surface-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0"
           >
-            Sign In
+            Join Beta
             <svg
               className="w-3.5 h-3.5"
               fill="none"
@@ -315,10 +315,10 @@ export default function Landing() {
                 FAQ
               </a>
               <Link
-                to="/signin"
+                to="/contact"
                 className="mt-2 text-center px-4 py-2.5 bg-surface-900 text-surface-0 text-xs font-semibold tracking-wide uppercase rounded-full"
               >
-                Sign In
+                Join Beta
               </Link>
             </div>
           </div>
@@ -346,10 +346,10 @@ export default function Landing() {
               </p>
               <div className="load-4 flex flex-wrap items-center gap-4 mt-10">
                 <Link
-                  to="/signup"
+                  to="/contact"
                   className="group inline-flex items-center gap-2 px-6 py-3 bg-surface-900 text-white text-sm font-semibold rounded-full transition-all duration-200 hover:bg-surface-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0 active:scale-[0.97]"
                 >
-                  Get Started Free
+                  Join Beta
                   <svg
                     className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                     fill="none"
@@ -1220,17 +1220,17 @@ export default function Landing() {
             <div ref={addRevealRef} className="lg:col-span-7 reveal reveal-delay-1">
               <div className="bg-surface-50 border border-surface-200 rounded-xl p-6 lg:p-8 space-y-6 text-center">
                 <h3 className="font-display text-2xl text-surface-900 font-bold">
-                  Start exploring RETAIND
+                  Ready to reduce turnover?
                 </h3>
                 <p className="text-surface-500">
-                  Create a free account to see the platform in action with demo data.
+                  Join the beta and be among the first to transform how you retain your workforce.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Link
-                    to="/signup"
+                    to="/contact"
                     className="group inline-flex items-center gap-2 px-6 py-3 bg-surface-900 text-white text-sm font-semibold rounded-full transition-all duration-200 hover:bg-surface-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-50 active:scale-[0.97]"
                   >
-                    Create Free Account
+                    Join Beta
                     <svg
                       className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                       fill="none"
@@ -1244,12 +1244,6 @@ export default function Landing() {
                         d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
                       />
                     </svg>
-                  </Link>
-                  <Link
-                    to="/signin"
-                    className="text-sm font-medium text-surface-500 hover:text-surface-900 transition-colors duration-200"
-                  >
-                    Already have an account? Sign in
                   </Link>
                 </div>
               </div>

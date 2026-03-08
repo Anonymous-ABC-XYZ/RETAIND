@@ -907,6 +907,29 @@ export interface Database {
           updated_at?: string
         }
       }
+      beta_contacts: {
+        Row: {
+          id: string
+          name: string
+          email: string
+          company_name: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          email: string
+          company_name: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          email?: string
+          company_name?: string
+          created_at?: string
+        }
+      }
     }
     Functions: {
       calculate_worker_risk_score: {
@@ -947,6 +970,7 @@ export type MentorNote = Database['public']['Tables']['mentor_notes']['Row']
 export type Playbook = Database['public']['Tables']['playbooks']['Row']
 export type PlaybookAcknowledgment = Database['public']['Tables']['playbook_acknowledgments']['Row']
 export type OrgInvite = Database['public']['Tables']['org_invites']['Row']
+export type BetaContact = Database['public']['Tables']['beta_contacts']['Row']
 
 // Insert types
 export type ProfileInsert = Database['public']['Tables']['profiles']['Insert']
