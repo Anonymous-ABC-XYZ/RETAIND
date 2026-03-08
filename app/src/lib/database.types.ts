@@ -50,6 +50,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       organisations: {
         Row: {
@@ -109,6 +110,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       user_organisations: {
         Row: {
@@ -135,6 +137,15 @@ export interface Database {
           is_primary?: boolean
           joined_at?: string
         }
+        Relationships: [
+          {
+            foreignKeyName: "user_organisations_organisation_id_fkey"
+            columns: ["organisation_id"]
+            isOneToOne: false
+            referencedRelation: "organisations"
+            referencedColumns: ["id"]
+          }
+        ]
       }
       super_admins: {
         Row: {
@@ -152,6 +163,7 @@ export interface Database {
           user_id?: string
           created_at?: string
         }
+      Relationships: []
       }
       regions: {
         Row: {
@@ -187,6 +199,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       teams: {
         Row: {
@@ -225,6 +238,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       workers: {
         Row: {
@@ -350,6 +364,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       onboarding_templates: {
         Row: {
@@ -394,6 +409,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       template_tasks: {
         Row: {
@@ -450,6 +466,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       onboarding_assignments: {
         Row: {
@@ -497,6 +514,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       assigned_tasks: {
         Row: {
@@ -550,6 +568,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       issues: {
         Row: {
@@ -624,6 +643,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       issue_comments: {
         Row: {
@@ -653,6 +673,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       cpd_records: {
         Row: {
@@ -724,6 +745,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       mentor_notes: {
         Row: {
@@ -771,6 +793,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       playbooks: {
         Row: {
@@ -839,6 +862,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       playbook_acknowledgments: {
         Row: {
@@ -859,6 +883,7 @@ export interface Database {
           worker_id?: string
           acknowledged_at?: string
         }
+      Relationships: []
       }
       org_invites: {
         Row: {
@@ -906,6 +931,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+      Relationships: []
       }
       beta_contacts: {
         Row: {
@@ -929,6 +955,7 @@ export interface Database {
           company_name?: string
           created_at?: string
         }
+        Relationships: []
       }
     }
     Views: {
